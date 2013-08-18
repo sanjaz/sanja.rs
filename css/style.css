@@ -1,0 +1,214 @@
+@charset "utf-8";
+/* CSS Document */
+/*-------------general start--------------*/
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section { display: block }
+body {
+    background: #fafafa;
+    padding: 0;
+    margin: 0;
+}
+ol,
+ul { list-style: none }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+	color: #535353;
+	background-color: #F4F4F4;
+	font-size: 14px;
+	line-height: 1.5em;
+	font-family: DejaVu serif, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #737373;
+    font-weight: normal;
+}
+h1, h2, h3 {
+    margin: 0 0 15px;
+}
+h1 {
+    font-size: 32px;
+    line-height: 38px;
+}
+h2 {
+    font-size: 26px;
+    line-height: 31px;
+}
+h3 {
+	font-size: 20px;
+	line-height: 24px;
+}
+
+#left_box {
+    font-size: 14px;
+    margin: 50px;
+    padding: 40px;
+    width: 600px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    float: left;
+}
+
+#left_box #basic_data {
+	padding-bottom: 30px;
+}
+#left_box #basic_data p {
+	margin: 3px 0px;
+}
+
+#left_box ul {
+	padding-bottom: 30px;
+	list-style: disc;
+}
+
+#left_box ul li {
+	margin-left: 20px;
+	padding-bottom: 3px;
+}
+
+#left_box a {
+	color: #A87658;
+}
+
+#left_box .position_details {
+	padding-bottom: 5px;
+}
+
+#left_box .exeriences_list {
+	padding-bottom: 25px;
+}
+
+#left_box #other_projects_list li,
+#left_box #conferences li {
+	padding-bottom: 20px;
+}
+
+#left_box #other_projects_list li:last-child,
+#left_box #conferences li:last-child {
+	padding-bottom: 0px;
+}
+
+.highlight {
+	color: #529410;
+	/*color: #21759B;*/
+	/*color: #2F3236;*/
+}
+
+.title {
+	font-style: italic;
+	padding-bottom: 3px;
+}
+
+.position {
+	color: #529410;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#right_box{
+	margin-left: 790px;
+	position: absolute;
+}
+
+#image_me {
+	margin: 50px 0px;
+	padding: 20px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+#articles {
+	padding-top: 20px;
+}
+
+#articles a {
+	color: #A87658;
+	display: block;
+	padding-bottom: 5px;
+}
+
+.article h3 {
+	padding-top: 10px;
+}
+
+.article p.code {
+	background-color: #F8F8F8;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
