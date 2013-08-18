@@ -128,7 +128,7 @@
 		</p>
 		<p>Or another way:</p>
 		<p class="code">
-			git reset --soft HEAD^
+			$ git reset --soft HEAD^
 		</p>
 		<p>To unstage an added file:</p>
 		<p class="code">
@@ -189,7 +189,7 @@
 			named issue_1:
 		</p>
 		<p class="code">
-			git diff master..issue_1
+			$ git diff master..issue_1
 		</p>
 		<p>
 			To <span class="highlight">merge</span> branches, switch to the
@@ -272,18 +272,21 @@
 		</p>
 		<p>To delete the remote branch:</p>
 		<p class="code">
-			git push [remote-repository-name] :[branch-name]
+			$ git push [remote-repository-name] :[branch-name]
 		</p>
 		<p>
 			To remove all branches from the local repository that have been
 			deleted in a remote repository:
 		</p>
 		<p class="code">
-			git remote prune [remote-repository-name]
+			$ git remote prune [remote-repository-name]
 		</p>
 		<p>To set up a local branch to track remote branch:</p>
 		<p class="code">
-			git branch -u [remote-repository-name]/[remote-branch-name]
+			$ git branch -u [remote-repository-name]/[remote-branch-name] [local-branch-name]
+		</p>
+		<p>It directs git pull without arguments to pull from the upstream
+           when the new branch is checked out.
 		</p>
 		<p>To create a new branch with the remote branch as the starting point:</p>
 		<p class="code">
@@ -297,13 +300,35 @@
 		</p>
 		<p>To create a tag:</p>
 		<p class="code">
-			git tag [tag-name]
+			$ git tag [tag-name]
 		</p>
 		<p>To push the created tag to the remote repository:</p>
 		<p class="code">
-			git push [remote-repository-name] [tag-name]
+			$ git push [remote-repository-name] [tag-name]
 		</p>
-		
+
+		<h3>Stashing</h3>
+		<p>
+			To save your local modifications, put them away and revert
+			the working directory to match the HEAD commit, use git stash.
+			This can be useful when you modify files in the working directory
+			and you need to fix a bug on a different branch, so you need to
+			checkout to another branch, but don't want to commit changes on the
+			current one. First add files that you want to stash to the git index
+			and than use the git stash command:
+		</p>
+		<p class="code">
+			$ git add [file-to-stash]<br/>
+			$ git stash
+		</p>
+		<p>
+			Now you can work on another branch and when ready, come back to
+			the branch where you did stashing. Get back your working directory
+			where it was before stashing with:
+		</p>
+		<p class="code">
+			$ git stash pop
+		</p>
 	</div>
 
 	<div id="right_box">
