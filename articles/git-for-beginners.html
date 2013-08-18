@@ -100,6 +100,21 @@
 		<p class="code">
 			$ git log
 		</p>
+		<p>
+			Ignoring files can be done by adding a file .gitignore which lists
+			patterns that git will ignore. Here is the example of .gitignore file:
+		</p>
+		<p class="code">
+			$ nano .gitignore<br/>
+			*.log<br/>
+			*~
+		</p>
+		<p>
+			The first line tells Git to ignore all files ending with .log.
+			The second line tells Git to ignore all files that end with a
+			tilde (~), which is very userful as many text editors use tilde to
+			mark temporary files.
+		</p>
 
 		<h3>Undoing changes</h3>
 		<p>
@@ -225,12 +240,15 @@
 		<p>where ID of the commit can be found with git log.</p>
 
 		<h3>Remote repositories</h3>
-		<p>To add a new remote repository, run:</p>
-		<p class="code">
-			$ git remote add [shortname] [url]
+		<p>
+			To create new remote repository, first create it on
+			<a href="https://github.com/new">GitHub</a> and after that run:
 		</p>
 		<p class="code">
-			$ git remote add origin git://github.com/sanjaz/myproject.git<br/>
+			$ git remote add [remote-repository-name] [url]
+		</p>
+		<p class="code">
+			$ git remote add origin git@github.com:my-username/my-project.git<br/>
 			$ git push origin master
 		</p>
 		<p>To list the names of remote repositories:</p>
