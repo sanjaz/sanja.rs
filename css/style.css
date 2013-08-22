@@ -50,12 +50,12 @@ time,
 mark,
 audio,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -68,18 +68,22 @@ header,
 hgroup,
 menu,
 nav,
-section { display: block }
-body {
-    background: #fafafa;
-    padding: 0;
-    margin: 0;
+section {
+	display: block
 }
-ol,
-ul { list-style: none }
+
+body {
+	background: #fafafa;
+	padding: 0;
+	margin: 0;
+}
+ol, ul {
+	list-style: none
+}
 
 html {
-    position: relative;
-    min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 body {
 	color: #535353;
@@ -90,19 +94,19 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #737373;
-    font-weight: normal;
+	color: #737373;
+	font-weight: normal;
 }
 h1, h2, h3 {
-    margin: 0 0 15px;
+	margin: 0 0 15px;
 }
 h1 {
-    font-size: 32px;
-    line-height: 38px;
+	font-size: 32px;
+	line-height: 38px;
 }
 h2 {
-    font-size: 26px;
-    line-height: 31px;
+	font-size: 26px;
+	line-height: 31px;
 }
 h3 {
 	font-size: 20px;
@@ -110,14 +114,23 @@ h3 {
 }
 
 #left_box {
-    font-size: 14px;
-    margin: 50px;
-    padding: 40px;
-    width: 600px;
-    background: none repeat scroll 0 0 #FFFFFF;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    float: left;
+	clear: left;
+	float: left;
+	width: 60%;
+	padding: 3%;
+	margin: 4%;
+	display: inline;
+	font-size: 14px;
+	background: none repeat scroll 0 0 #FFFFFF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+}
+
+#right_box {
+	float: right;
+	width: 26%;
+	padding: 3% 0;
+	display: inline;
 }
 
 #left_box #basic_data {
@@ -176,17 +189,14 @@ h3 {
 	padding-bottom: 5px;
 }
 
-#right_box{
-	margin-left: 790px;
-	position: absolute;
-}
-
 #image_me {
-	margin: 50px 0px;
+	margin: 3% 0;
 	padding: 20px;
-    background: none repeat scroll 0 0 #FFFFFF;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+	background: none repeat scroll 0 0 #FFFFFF;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+	width: 200px;
+	height: auto;
 }
 
 #articles {
@@ -215,10 +225,10 @@ h3 {
 
 .article p.code {
 	background-color: #F8F8F8;
-    border: 1px solid #DDDDDD;
-    border-radius: 3px 3px 3px 3px;
-    font-size: 13px;
-    line-height: 19px;
-    overflow: auto;
-    padding: 6px 10px;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px 3px 3px 3px;
+	font-size: 13px;
+	line-height: 19px;
+	overflow: auto;
+	padding: 6px 10px;
 }
