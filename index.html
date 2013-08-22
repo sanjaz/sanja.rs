@@ -11,10 +11,25 @@
 </head>
 <body>
 	<div id="left_box">
-		<h1>Sanja Životić - Curriculum Vitae</h1>
-		<div id="basic_data">
-			<p>Date of birth: April 3rd, 1984.</p>
-			<p>E-mail: sanjazivotic(a)gmail.com</p>
+		<div itemscope itemtype="http://schema.org/Person">
+			<h1>
+				<span itemprop="givenName">Sanja</span>
+				<span itemprop="familyName">Životić</span> 
+				- Curriculum Vitae
+			</h1>
+			<div id="basic_data">
+				<meta itemprop="url" content="http://sanja.rs" />
+				<meta itemprop="birthDate" content="1984-04-03" />
+				<p>Date of birth: April 3rd, 1984.</p>
+				<p itemprop="homeLocation" itemscope itemtype="http://schema.org/PostalAddress">
+					Location:
+					<span itemprop="addressLocality">Belgrade</span>,
+				    <span itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
+				    	<span itemprop="name">Serbia</span>
+				    </span>
+				</p>
+				<p>E-mail: sanjazivotic(a)gmail.com</p>
+			</div>
 		</div>
 
 		<h3>Professional interests</h3>
