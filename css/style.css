@@ -199,6 +199,16 @@ h3 {
 	padding-bottom: 5px;
 }
 
+.article h2.author {
+	margin-top: -15px;
+	font-size: 12px;
+	font-style: italic;
+}
+.article h2.author #author_name a {
+	text-decoration: none;
+	color: #737373;
+}
+
 .article h3 {
 	padding-top: 10px;
 }

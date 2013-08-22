@@ -1,340 +1,349 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>Sanja Zivotic - Git For Beginners</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="title" content="Sanja Zivotic - Git For Beginners">
 	<meta name="keywords" content="sanja, zivotic, git, beginners, version control">
 	<meta name="description" content="Sanja Zivotic - Git For Beginners">
-	<meta name="robots" content="index,follow" />
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<div id="left_box" class="article">
-		<h1>Git For Beginners</h1>
-		<p>
-			Git is a bit different than other well known version control systems,
-			but its popularity is growing up each day. If someone needs only the
-			basics and doesn't want to get into great detail regarding what
-			Git is doing in the background, here is the quick tutorial and
-			some useful tips.
-		</p>
-
-		<h3>Installing Git</h3>
-		<p>On a Debian-based distribution like Ubuntu, try using apt-get:</p>
-		<p class="code">
-			$ apt-get install git
-		</p>
-		<p>On Red Hat based distributions, such as Fedora:</p>
-		<p class="code">
-			$ yum install git
-		</p>
-		<p>On Windows, simply download the installer and run it:
-		<p>
-			<a href="http://git-scm.com/download/win">http://git-scm.com/download/win</a>
-		</p>
-		<p>On Mac OS X, grab the installer here:</p>
-		<p><a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
-
-		<h3>Getting a Git Repository</h3>
-		To create a new git repository, create a new directory, open it and perform:
-		<p class="code">
-			$ git init
-		</p>
-		<p>
-			This command creates a new hidden subdirectory named .git that will
-			contain all repository files (it is empty right after the
-			initialization).
-		</p>
-		<p>
-			To clone an existing repository (to checkout a repository):
-		</p>
-		<p class="code">
-			$ git clone path/to/repository
-		</p>
-		<p> or if you use a remote server:</p>
-		<p class="code">
-			$ git clone username@host:/path/to/repository
-		</p>
-		<p>For example, to clone django (using git protocol):</p>
-		<p class="code">
-			$ git clone git@github.com:django/django.git
-		</p>
-
-		<h3>Tracking files and commit changes</h3>
-		<p>To check the status of your files use:</p>
-		<p class="code">
-			$ git status<br/>
-			# On branch master<br/>
-			nothing to commit (working directory clean)
-		</p>
-		<p>
-			To add a file to the list of files that will be committed
-			to the repository:
-		</p>
-		<p class="code">
-			$ git add [file]
-		</p>
-		<p>or to add all files:</p>
-		<p class="code">
-			$ git add *
-		</p>
-		<p>To actually commit changes to the repository, perform:
-		<p class="code">
-			$ git commit -m 'This is commit message.' [file]
-		</p>
-		<p>
-			The -m option sets the message that will be saved with the commit.
- 			If you don’t use it, an editor will be started to enter the message.
-		</p>
-		<p>
-			To remove a file from Git, remove it from your tracked files and
-			then commit.
-		</p>
-		<p class="code">
-			$ git rm [file]
-		</p>
-		<p>To see what is changed but not yet staged:</p>
-		<p class="code">
-			$ git diff
-		</p>
-		<p>To see what is staged, but not yet commited: </p>
-		<p class="code">
-			$ git diff --cached
-		</p>
-		<p>Checking the Commit History can be done using git log:</p>
-		<p class="code">
-			$ git log
-		</p>
-		<p>
-			Ignoring files can be done by adding a file .gitignore which lists
-			patterns that git will ignore. Here is the example of .gitignore file:
-		</p>
-		<p class="code">
-			$ nano .gitignore<br/>
-			*.log<br/>
-			*~
-		</p>
-		<p>
-			The first line tells Git to ignore all files ending with .log.
-			The second line tells Git to ignore all files that end with a
-			tilde (~), which is very userful as many text editors use tilde to
-			mark temporary files.
-		</p>
-
-		<h3>Undoing changes</h3>
-		<p>
-			If you forgot to add a file before a commit or you messed up the
-			commit message:
-		</p>
-		<p class="code">
-			$ git commit -m 'initial commit with errors'<br/>
-			$ git add [forgotten_file]<br/>
-			$ git commit --amend
-		</p>
-		<p>Or another way:</p>
-		<p class="code">
-			$ git reset --soft HEAD^
-		</p>
-		<p>To unstage an added file:</p>
-		<p class="code">
-			$ git reset HEAD [file]
-		</p>
-		<p>
-			To discard changes on a file (use this with caution as
-			you are going to loose all uncommited changes on the file):
-		</p>
-		<p class="code">
-			$ git checkout -- [file]
-		</p>
-		<p>For undoing last 3 commits permanently, run:</p>
-		<p class="code">
-			$ git reset --hard HEAD~3
-		</p>
-		<p>Undo a merge or pull:</p>
-		<p class="code">
-			$ git pull<br/>
-			Auto-merging test<br/>
-			CONFLICT (content): Merge conflict in test<br/>
-			Automatic merge failed; fix conflicts and then commit the result.<br/>
-			$ git reset --hard<br/>
-			$ git pull . origin/[branch-name]<br/>
-			$ git reset --hard ORIG_HEAD<br/>
-		</p>
-
-		<h3>Branches</h3>
-		<p>
-			After a git repository is initialized, one default branch named
-			master is created. To list all the branches in the repository:
-		</p>
-		<p class="code">
-			$ git branch<br/>
-			* master<br/>
-			branch_1<br/>
-			branch_2
-		</p>
-		<p>The asterisk is placed before the name of the current branch.</p>
-		<p>To create a new branch:</p>
-		<p class="code">
-			$ git branch [branch-name]
-		</p>
-		<p>To switch to a new branch:</p>
-		<p class="code">
-			$ git checkout [branch-name]
-		</p>
-		<p>To create a new branch and switch to it in one command, run:</p>
-		<p class="code">
-			$ git checkout -b [branch-name]
-		</p>
-		<p>To delete a branch, switch to another branch and run:</p>
-		<p class="code">
-			$ git branch -d [branch-name]
-		</p>
-		<p>
-			To see all differences between the master branch and the branch
-			named issue_1:
-		</p>
-		<p class="code">
-			$ git diff master..issue_1
-		</p>
-		<p>
-			To <span class="highlight">merge</span> branches, switch to the
-			branch you wish to merge into and then run the git merge command:
-		</p>
-		<p class="code">
-			$ git checkout master<br/>
-			$ git merge issue_1
-		</p>
-		<p>
-			Occasionally, you will do different changes on the same part of
-			the same file on two branches that you’re merging together.
-			Then you will get conflicts which you need to resolve manually
-			by editing the files.
-		</p>
-		<p class="code">
-			Auto-merging file.html<br/>
-			CONFLICT (content): Merge conflict in file.html<br/>
-			Automatic merge failed; fix conflicts and then commit the result.
-		</p>
-		<p>To see which files are unmerged after a merge conflict, run git status:</p>
-		<p class="code">
-			$ git status
-		</p>
-		<p>
-			After the cleaning, you need to add all unmerged files to the index
-			with git add command and commit.
-		</p>
-		<p>
-			Using git <span class="highlight">rebase</span> command can rewrite
-			the history of a repository: all the changes that were committed
-			on one branch can be replayed on another one.
-		</p>
-		<p class="code">
-			$ git checkout [branch-name]<br/>
-			$ git rebase master<br/>
-			First, rewinding head to replay your work on top of it...<br/>
-			Applying: added staged command
-		</p>
-		<p>To find out which branch contains a change:</p>
-		<p class="code">
-			$ git branch --contains 30f1283
-		</p>
-		<p>For getting the one specific commit, cherry-pick can be used:</p>
-		<p class="code">
-			$ git cherry-pick 5e2e1a4
-		</p>
-		<p>where ID of the commit can be found with git log.</p>
-
-		<h3>Remote repositories</h3>
-		<p>
-			To create new remote repository, first create it on
-			<a href="https://github.com/new">GitHub</a> and after that run:
-		</p>
-		<p class="code">
-			$ git remote add [remote-repository-name] [url]
-		</p>
-		<p class="code">
-			$ git remote add origin git@github.com:my-username/my-project.git<br/>
-			$ git push origin master
-		</p>
-		<p>To list the names of remote repositories:</p>
-		<p class="code">
-			$ git remote<br/>
-			origin
-		</p>
-		<p>To list all remote-tracking branches:</p>
-		<p class="code">
-			$ git branch -r
-		</p>
-		<p>To publish the changes to the existing remote repository:</p>
-		<p class="code">
-			$ git push [remote-repository-name] [branch-name]
-		</p>
-		<p>
-			To retrieve new updates from the remote repository and merge it
-			into your local one:</p>
-		<p class="code">
-			$ git pull [remote-repository-name] [branch-name]
-		</p>
-		<p>To delete the remote branch:</p>
-		<p class="code">
-			$ git push [remote-repository-name] :[branch-name]
-		</p>
-		<p>
-			To remove all branches from the local repository that have been
-			deleted in a remote repository:
-		</p>
-		<p class="code">
-			$ git remote prune [remote-repository-name]
-		</p>
-		<p>To set up a local branch to track remote branch:</p>
-		<p class="code">
-			$ git branch -u [remote-repository-name]/[remote-branch-name] [local-branch-name]
-		</p>
-		<p>It directs git pull without arguments to pull from the upstream
-           when the new branch is checked out.
-		</p>
-		<p>To create a new branch with the remote branch as the starting point:</p>
-		<p class="code">
-			$ git checkout -b [local-branch-name] [remote-repository-name]/[remote-branch-name]
-		</p>
-
-		<h3>Tagging</h3>
-		<p>To list all tags, run:</p>
-		<p class="code">
-			$ git tag -l
-		</p>
-		<p>To create a tag:</p>
-		<p class="code">
-			$ git tag [tag-name]
-		</p>
-		<p>To push the created tag to the remote repository:</p>
-		<p class="code">
-			$ git push [remote-repository-name] [tag-name]
-		</p>
-
-		<h3>Stashing</h3>
-		<p>
-			To save your local modifications, put them away and revert
-			the working directory to match the HEAD commit, use git stash.
-			This can be useful when you modify files in the working directory
-			and you need to fix a bug on a different branch, so you need to
-			checkout to another branch, but don't want to commit changes on the
-			current one. First add files that you want to stash to the git index
-			and than use the git stash command:
-		</p>
-		<p class="code">
-			$ git add [file-to-stash]<br/>
-			$ git stash
-		</p>
-		<p>
-			Now you can work on another branch and when ready, come back to
-			the branch where you did stashing. Get back your working directory
-			where it was before stashing with:
-		</p>
-		<p class="code">
-			$ git stash pop
-		</p>
+	<div id="left_box" class="article" itemscope itemtype="http://schema.org/TechArticle">
+		<h1 itemprop="name headline">Git For Beginners</h1>
+		<h2 class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+			by
+			<span itemprop="name" id="author_name">
+                <a href="http://sanja.rs" itemprop="url">
+                	Sanja Zivotic
+                </a>
+            </span>
+		</h2>
+		<div itemprop="articleBody">
+			<p>
+				Git is a bit different than other well known version control systems,
+				but its popularity is growing up each day. If someone needs only the
+				basics and doesn't want to get into great detail regarding what
+				Git is doing in the background, here is the quick tutorial and
+				some useful tips.
+			</p>
+	
+			<h3>Installing Git</h3>
+			<p>On a Debian-based distribution like Ubuntu, try using apt-get:</p>
+			<p class="code">
+				$ apt-get install git
+			</p>
+			<p>On Red Hat based distributions, such as Fedora:</p>
+			<p class="code">
+				$ yum install git
+			</p>
+			<p>On Windows, simply download the installer and run it:</p>
+			<p>
+				<a href="http://git-scm.com/download/win">http://git-scm.com/download/win</a>
+			</p>
+			<p>On Mac OS X, grab the installer here:</p>
+			<p><a href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a></p>
+	
+			<h3>Getting a Git Repository</h3>
+			To create a new git repository, create a new directory, open it and perform:
+			<p class="code">
+				$ git init
+			</p>
+			<p>
+				This command creates a new hidden subdirectory named .git that will
+				contain all repository files (it is empty right after the
+				initialization).
+			</p>
+			<p>
+				To clone an existing repository (to checkout a repository):
+			</p>
+			<p class="code">
+				$ git clone path/to/repository
+			</p>
+			<p> or if you use a remote server:</p>
+			<p class="code">
+				$ git clone username@host:/path/to/repository
+			</p>
+			<p>For example, to clone django (using git protocol):</p>
+			<p class="code">
+				$ git clone git@github.com:django/django.git
+			</p>
+	
+			<h3>Tracking files and commit changes</h3>
+			<p>To check the status of your files use:</p>
+			<p class="code">
+				$ git status<br/>
+				# On branch master<br/>
+				nothing to commit (working directory clean)
+			</p>
+			<p>
+				To add a file to the list of files that will be committed
+				to the repository:
+			</p>
+			<p class="code">
+				$ git add [file]
+			</p>
+			<p>or to add all files:</p>
+			<p class="code">
+				$ git add *
+			</p>
+			<p>To actually commit changes to the repository, perform:</p>
+			<p class="code">
+				$ git commit -m 'This is commit message.' [file]
+			</p>
+			<p>
+				The -m option sets the message that will be saved with the commit.
+	 			If you don’t use it, an editor will be started to enter the message.
+			</p>
+			<p>
+				To remove a file from Git, remove it from your tracked files and
+				then commit.
+			</p>
+			<p class="code">
+				$ git rm [file]
+			</p>
+			<p>To see what is changed but not yet staged:</p>
+			<p class="code">
+				$ git diff
+			</p>
+			<p>To see what is staged, but not yet commited: </p>
+			<p class="code">
+				$ git diff --cached
+			</p>
+			<p>Checking the Commit History can be done using git log:</p>
+			<p class="code">
+				$ git log
+			</p>
+			<p>
+				Ignoring files can be done by adding a file .gitignore which lists
+				patterns that git will ignore. Here is the example of .gitignore file:
+			</p>
+			<p class="code">
+				$ nano .gitignore<br/>
+				*.log<br/>
+				*~
+			</p>
+			<p>
+				The first line tells Git to ignore all files ending with .log.
+				The second line tells Git to ignore all files that end with a
+				tilde (~), which is very userful as many text editors use tilde to
+				mark temporary files.
+			</p>
+	
+			<h3>Undoing changes</h3>
+			<p>
+				If you forgot to add a file before a commit or you messed up the
+				commit message:
+			</p>
+			<p class="code">
+				$ git commit -m 'initial commit with errors'<br/>
+				$ git add [forgotten_file]<br/>
+				$ git commit --amend
+			</p>
+			<p>Or another way:</p>
+			<p class="code">
+				$ git reset --soft HEAD^
+			</p>
+			<p>To unstage an added file:</p>
+			<p class="code">
+				$ git reset HEAD [file]
+			</p>
+			<p>
+				To discard changes on a file (use this with caution as
+				you are going to loose all uncommited changes on the file):
+			</p>
+			<p class="code">
+				$ git checkout -- [file]
+			</p>
+			<p>For undoing last 3 commits permanently, run:</p>
+			<p class="code">
+				$ git reset --hard HEAD~3
+			</p>
+			<p>Undo a merge or pull:</p>
+			<p class="code">
+				$ git pull<br/>
+				Auto-merging test<br/>
+				CONFLICT (content): Merge conflict in test<br/>
+				Automatic merge failed; fix conflicts and then commit the result.<br/>
+				$ git reset --hard<br/>
+				$ git pull . origin/[branch-name]<br/>
+				$ git reset --hard ORIG_HEAD<br/>
+			</p>
+	
+			<h3>Branches</h3>
+			<p>
+				After a git repository is initialized, one default branch named
+				master is created. To list all the branches in the repository:
+			</p>
+			<p class="code">
+				$ git branch<br/>
+				* master<br/>
+				branch_1<br/>
+				branch_2
+			</p>
+			<p>The asterisk is placed before the name of the current branch.</p>
+			<p>To create a new branch:</p>
+			<p class="code">
+				$ git branch [branch-name]
+			</p>
+			<p>To switch to a new branch:</p>
+			<p class="code">
+				$ git checkout [branch-name]
+			</p>
+			<p>To create a new branch and switch to it in one command, run:</p>
+			<p class="code">
+				$ git checkout -b [branch-name]
+			</p>
+			<p>To delete a branch, switch to another branch and run:</p>
+			<p class="code">
+				$ git branch -d [branch-name]
+			</p>
+			<p>
+				To see all differences between the master branch and the branch
+				named issue_1:
+			</p>
+			<p class="code">
+				$ git diff master..issue_1
+			</p>
+			<p>
+				To <span class="highlight">merge</span> branches, switch to the
+				branch you wish to merge into and then run the git merge command:
+			</p>
+			<p class="code">
+				$ git checkout master<br/>
+				$ git merge issue_1
+			</p>
+			<p>
+				Occasionally, you will do different changes on the same part of
+				the same file on two branches that you’re merging together.
+				Then you will get conflicts which you need to resolve manually
+				by editing the files.
+			</p>
+			<p class="code">
+				Auto-merging file.html<br/>
+				CONFLICT (content): Merge conflict in file.html<br/>
+				Automatic merge failed; fix conflicts and then commit the result.
+			</p>
+			<p>To see which files are unmerged after a merge conflict, run git status:</p>
+			<p class="code">
+				$ git status
+			</p>
+			<p>
+				After the cleaning, you need to add all unmerged files to the index
+				with git add command and commit.
+			</p>
+			<p>
+				Using git <span class="highlight">rebase</span> command can rewrite
+				the history of a repository: all the changes that were committed
+				on one branch can be replayed on another one.
+			</p>
+			<p class="code">
+				$ git checkout [branch-name]<br/>
+				$ git rebase master<br/>
+				First, rewinding head to replay your work on top of it...<br/>
+				Applying: added staged command
+			</p>
+			<p>To find out which branch contains a change:</p>
+			<p class="code">
+				$ git branch --contains 30f1283
+			</p>
+			<p>For getting the one specific commit, cherry-pick can be used:</p>
+			<p class="code">
+				$ git cherry-pick 5e2e1a4
+			</p>
+			<p>where ID of the commit can be found with git log.</p>
+	
+			<h3>Remote repositories</h3>
+			<p>
+				To create new remote repository, first create it on
+				<a href="https://github.com/new">GitHub</a> and after that run:
+			</p>
+			<p class="code">
+				$ git remote add [remote-repository-name] [url]
+			</p>
+			<p class="code">
+				$ git remote add origin git@github.com:my-username/my-project.git<br/>
+				$ git push origin master
+			</p>
+			<p>To list the names of remote repositories:</p>
+			<p class="code">
+				$ git remote<br/>
+				origin
+			</p>
+			<p>To list all remote-tracking branches:</p>
+			<p class="code">
+				$ git branch -r
+			</p>
+			<p>To publish the changes to the existing remote repository:</p>
+			<p class="code">
+				$ git push [remote-repository-name] [branch-name]
+			</p>
+			<p>
+				To retrieve new updates from the remote repository and merge it
+				into your local one:</p>
+			<p class="code">
+				$ git pull [remote-repository-name] [branch-name]
+			</p>
+			<p>To delete the remote branch:</p>
+			<p class="code">
+				$ git push [remote-repository-name] :[branch-name]
+			</p>
+			<p>
+				To remove all branches from the local repository that have been
+				deleted in a remote repository:
+			</p>
+			<p class="code">
+				$ git remote prune [remote-repository-name]
+			</p>
+			<p>To set up a local branch to track remote branch:</p>
+			<p class="code">
+				$ git branch -u [remote-repository-name]/[remote-branch-name] [local-branch-name]
+			</p>
+			<p>It directs git pull without arguments to pull from the upstream
+	           when the new branch is checked out.
+			</p>
+			<p>To create a new branch with the remote branch as the starting point:</p>
+			<p class="code">
+				$ git checkout -b [local-branch-name] [remote-repository-name]/[remote-branch-name]
+			</p>
+	
+			<h3>Tagging</h3>
+			<p>To list all tags, run:</p>
+			<p class="code">
+				$ git tag -l
+			</p>
+			<p>To create a tag:</p>
+			<p class="code">
+				$ git tag [tag-name]
+			</p>
+			<p>To push the created tag to the remote repository:</p>
+			<p class="code">
+				$ git push [remote-repository-name] [tag-name]
+			</p>
+	
+			<h3>Stashing</h3>
+			<p>
+				To save your local modifications, put them away and revert
+				the working directory to match the HEAD commit, use git stash.
+				This can be useful when you modify files in the working directory
+				and you need to fix a bug on a different branch, so you need to
+				checkout to another branch, but don't want to commit changes on the
+				current one. First add files that you want to stash to the git index
+				and than use the git stash command:
+			</p>
+			<p class="code">
+				$ git add [file-to-stash]<br/>
+				$ git stash
+			</p>
+			<p>
+				Now you can work on another branch and when ready, come back to
+				the branch where you did stashing. Get back your working directory
+				where it was before stashing with:
+			</p>
+			<p class="code">
+				$ git stash pop
+			</p>
+		</div>
 	</div>
 
 	<div id="right_box">
