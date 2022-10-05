@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 /* CSS Document */
 /*-------------general start--------------*/
 small,
@@ -57,6 +58,7 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -77,7 +79,9 @@ body {
 	padding: 0;
 	margin: 0;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none
 }
 
@@ -85,6 +89,7 @@ html {
 	position: relative;
 	min-height: 100%;
 }
+
 body {
 	color: #535353;
 	background-color: #F4F4F4;
@@ -93,24 +98,39 @@ body {
 	font-family: DejaVu serif, serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: #737373;
 	font-weight: normal;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
 	margin: 0 0 15px;
 }
+
 h1 {
 	font-size: 32px;
 	line-height: 38px;
 }
+
 h2 {
 	font-size: 26px;
 	line-height: 31px;
 }
+
 h3 {
 	font-size: 20px;
 	line-height: 24px;
+}
+
+a {
+	text-decoration: none;
 }
 
 #left_box {
@@ -136,17 +156,22 @@ h3 {
 #left_box #basic_data {
 	padding-bottom: 30px;
 }
+
 #left_box #basic_data p {
 	margin: 3px 0px;
 }
 
+#left_box #intro {
+	padding-bottom: 30px;
+	margin: 0px;
+}
+
 #left_box ul {
 	padding-bottom: 30px;
-	list-style: disc;
+	list-style: none;
 }
 
 #left_box ul li {
-	margin-left: 20px;
 	padding-bottom: 3px;
 }
 
@@ -154,20 +179,25 @@ h3 {
 	color: #A87658;
 }
 
-#left_box .position_details {
-	padding-bottom: 5px;
+#left_box .position_time {
+	padding-bottom: 7px;
+	color: gray;
+}
+
+#left_box ul.bullet_list {
+	list-style: disc;
+	margin-left: 20px;
 }
 
 #left_box .exeriences_list {
-	padding-bottom: 25px;
+	padding-bottom: 0px;
 }
 
-#left_box #other_projects_list li,
 #left_box #conferences li {
 	padding-bottom: 20px;
 }
 
-#left_box #other_projects_list li:last-child,
+#left_box .exeriences_list li:last-child,
 #left_box #conferences li:last-child {
 	padding-bottom: 0px;
 }
@@ -186,7 +216,7 @@ h3 {
 .position {
 	color: #529410;
 	padding-top: 5px;
-	padding-bottom: 5px;
+	font-size: 16px;
 }
 
 #image_me {
@@ -196,6 +226,11 @@ h3 {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	border-radius: 20px;
 	width: 200px;
+	height: auto;
+}
+
+#image_me a img {
+	max-width: 100%;
 	height: auto;
 }
 
@@ -214,6 +249,7 @@ h3 {
 	font-size: 12px;
 	font-style: italic;
 }
+
 .article h2.author #author_name a {
 	text-decoration: none;
 	color: #737373;

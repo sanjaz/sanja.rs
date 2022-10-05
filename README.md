@@ -1,4 +1,4 @@
 http://sanja.rs
 ========
 
-Sanja Zivotic Website
+Sanja Segan Personal Website
