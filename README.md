@@ -1,4 +1,4 @@
 http://sanja.rs
 ========
 
-Sanja Segan Personal Website
+Sanja Šegan Personal Website
